@@ -19,6 +19,5 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  plugins: isNetlify ? [netlify()] : [],
-  nitro: isNetlify ? false : undefined,
+  ...(isNetlify ? { plugins: [netlify()], nitro: false as const } : {}),
 });
