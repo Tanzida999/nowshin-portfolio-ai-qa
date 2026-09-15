@@ -48,7 +48,8 @@ export const projects: Project[] = [
     status: "Live",
     tech: ["TanStack Start", "Capacitor", "Supabase", "OpenRouter", "Firebase"],
     link: "https://yourquietcorner.co.uk",
-    image: { url: quietCornerAsset.url, position: "center 14%" },
+    cover: coverSentiment,
+    screenshot: { src: shotQuietCorner, width: 1600, height: 900, address: "yourquietcorner.co.uk" },
   },
   {
     slug: "barilagbe",
@@ -56,7 +57,8 @@ export const projects: Project[] = [
     status: "In progress",
     tech: ["Lovable", "React"],
     link: "https://barilagbe.lovable.app",
-    image: { url: barilagbeAsset.url, position: "center top" },
+    cover: coverStockfix,
+    screenshot: { src: shotBarilagbe, width: 1600, height: 900, address: "barilagbe99.netlify.app" },
   },
   {
     slug: "stockfix",
@@ -64,18 +66,21 @@ export const projects: Project[] = [
     status: "In progress",
     tech: ["TanStack Start", "TypeScript", "Supabase", "Tailwind"],
     link: "https://github.com/Tanzida999/stockfix",
+    cover: coverStockfix,
   },
   {
     slug: "line-booking-agent",
     category: "Company",
     status: "In progress",
     tech: ["LINE", "AI agents", "APIs", "Automation"],
+    cover: coverLineBooking,
   },
   {
     slug: "kizuna",
     category: "Company",
     status: "In progress",
     tech: ["LINE", "LLM APIs", "Prompt design", "Safety flows"],
+    cover: coverKizuna,
   },
   {
     slug: "sakinah",
@@ -83,13 +88,15 @@ export const projects: Project[] = [
     status: "In progress",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/Tanzida999/Sakinah",
-    image: { url: sakinahAsset.url, position: "center 12%" },
+    cover: coverSakinah,
+    screenshot: { src: shotSakinah, width: 900, height: 1827, position: "center 12%" },
   },
   {
     slug: "real-time-sentiment-dashboard",
     category: "Personal",
     status: "In progress",
     tech: ["AWS Kinesis", "Comprehend", "OpenSearch", "CloudWatch"],
+    cover: coverSentiment,
   },
 ];
 
