@@ -17,7 +17,10 @@ export type Project = {
   status: ProjectStatus;
   tech: string[];
   link?: string;
-  image?: { url: string; position?: string };
+  /** Bundled illustration used as the cover and as the fallback if a screenshot fails. */
+  cover: string;
+  /** Real product screenshot; `address` renders inside a browser-window frame. */
+  screenshot?: { src: string; width: number; height: number; address?: string; position?: string };
 };
 
 export type SectionId = "about" | "skills" | "experience" | "projects" | "contact";
