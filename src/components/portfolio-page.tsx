@@ -189,8 +189,24 @@ function ProjectCard({ project, c, locale }: { project: Project; c: Content; loc
 
 export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
   const reduced = useReducedMotion();
+  return <motion.div className="project-visual" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .25 }} transition={{ duration: .8, ease: premiumEase }}><ProjectImage project={project} c={c} /></motion.div>;
+}
+
+export function ProjectImage({ project, c }: { project: Project; c: Content }) {
   const copy = c.projects[project.slug as keyof Content["projects"]];
-  return <motion.div className="project-visual" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .25 }} transition={{ duration: .8, ease: premiumEase }}>{project.image ? <img src={project.image.url} alt={copy.imageAlt} loading="lazy" width="1280" height="800" style={{ objectPosition: project.image.position }} /> : <div className="project-placeholder"><span>{copy.title.slice(0, 2).toUpperCase()}</span><p>{c.ui.categories[project.category]} / {c.ui.status[statusKey(project.status)]}</p></div>}</motion.div>;
+  const [shotFailed, setShotFailed] = useState(false);
+  const [coverFailed, setCoverFailed] = useState(false);
+  const shot = project.screenshot;
+  if (shot && !shotFailed) {
+    const image = <img src={shot.src} alt={copy.imageAlt} loading="lazy" width={shot.width} height={shot.height} style={{ objectPosition: shot.position }} onError={() => setShotFailed(true)} />;
+    if (!shot.address) return image;
+    return <div className="browser-frame">
+      <div className="browser-bar" aria-hidden="true"><span className="browser-dot" /><span className="browser-dot" /><span className="browser-dot" /><span className="browser-url">{shot.address}</span></div>
+      <div className="browser-viewport">{image}</div>
+    </div>;
+  }
+  if (!coverFailed) return <img src={project.cover} alt={copy.imageAlt} loading="lazy" width={1600} height={1008} onError={() => setCoverFailed(true)} />;
+  return <div className="project-placeholder"><span>{copy.title.slice(0, 2).toUpperCase()}</span><p>{c.ui.categories[project.category]} / {c.ui.status[statusKey(project.status)]}</p></div>;
 }
 
 function Status({ status, c }: { status: ProjectStatus; c: Content }) { return <span className={`status ${status === "Live" ? "status-live" : "status-progress"}`}><span className="h-1.5 w-1.5 rounded-full bg-current" />{c.ui.status[statusKey(status)]}</span>; }

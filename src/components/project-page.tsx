@@ -30,7 +30,7 @@ export function ProjectDetailPage({ project, locale }: { project: Project; local
         <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">{copy.overview}</p>
         {project.link && <Button asChild className="mt-9"><a href={project.link} target="_blank" rel="noreferrer">{c.ui.visitProject} <ArrowUpRight size={16} /></a></Button>}
       </div></section>
-      {project.image && <div className="page-shell py-12 sm:py-16"><h2 className="eyebrow mb-6 text-primary">{c.ui.screenshots}</h2><motion.div className="case-image" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8, ease: [0.22, 1, 0.36, 1] }}><img src={project.image.url} alt={copy.imageAlt} width="1280" height="800" /></motion.div></div>}
+      <div className="page-shell py-12 sm:py-16"><h2 className="eyebrow mb-6 text-primary">{c.ui.screenshots}</h2><motion.div className="case-image" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8, ease: [0.22, 1, 0.36, 1] }}><ProjectImage project={project} c={c} /></motion.div></div>
       <section className="page-shell grid gap-14 border-b border-border py-16 sm:py-24 lg:grid-cols-[0.7fr_1.3fr]">
         <div><p className="eyebrow text-primary">{c.ui.myRole}</p><p className="mt-5 leading-7">{copy.role}</p></div>
         <div><p className="eyebrow text-primary">{c.ui.technology}</p><div className="mt-5 flex flex-wrap gap-2">{project.tech.map((item) => <span className="tag" key={item}>{item}</span>)}</div></div>
