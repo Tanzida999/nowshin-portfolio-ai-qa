@@ -2,7 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Clipboard, Download, Menu, Moon, Play, RotateCcw, Search, Send, Sun, Undo2, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
-import portraitAsset from "@/assets/tanzida-photo-cutout.png.asset.json";
+import portraitImage from "@/assets/tanzida-portrait.png";
 import { LanguageSwitch } from "@/components/language-switch";
 import { Button } from "@/components/ui/button";
 import { experienceItems, navItems, person, projects, type Project, type ProjectStatus } from "@/data/portfolio";
@@ -143,7 +143,7 @@ function HeroPortrait({ c }: { c: Content }) {
     <motion.div className="portrait-circle" style={{ x: circleX, y: circleY }} initial={reduced ? false : { opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .6, ease: premiumEase }} />
     <svg className="portrait-ring" viewBox="0 0 100 100" aria-hidden="true"><motion.circle cx="50" cy="50" r="48.8" initial={reduced ? false : { pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1, delay: reduced ? 0 : .45, ease: premiumEase }} /></svg>
     <motion.div className="portrait-person" style={{ x: photoX, y: photoY }} initial={reduced ? false : { opacity: 0, translateY: 24 }} animate={reduced ? { opacity: 1 } : { opacity: 1, translateY: [24, 0, -4, 0] }} transition={reduced ? { duration: 0 } : { opacity: { duration: .8, delay: .2 }, translateY: { duration: 6, delay: .2, times: [0, .14, .57, 1], repeat: Infinity, ease: "easeInOut" } }}>
-      <img src={portraitAsset.url} alt={c.hero.portraitAlt} width="690" height="866" fetchPriority="high" />
+      <img src={portraitImage} alt={c.hero.portraitAlt} width="690" height="866" fetchPriority="high" />
     </motion.div>
   </div><div className="availability"><span />{c.hero.availability}</div></div>;
 }

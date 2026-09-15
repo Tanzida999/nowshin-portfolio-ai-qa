@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitch } from "@/components/language-switch";
+import { ProjectImage } from "@/components/portfolio-page";
 import type { Project } from "@/data/portfolio";
 import { getContent, getT, homePath, projectPath, type Content, type Locale } from "@/lib/i18n";
 import { useEffect } from "react";
