@@ -220,7 +220,6 @@
 
 @keyframes type-in { from { opacity: 0; transform: translateY(0.25rem); } to { opacity: 1; transform: translateY(0); } }
 
-@media (min-width: 640px) { @utility page-shell { width: min(100% - 4rem, 76rem); } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
