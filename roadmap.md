@@ -19,3 +19,8 @@
 
 ## Static app request
 - [ ] Requested conversion to a plain Vite + React Router static app for Netlify — blocked: this project's framework is fixed on Lovable.
+
+## Images (done)
+- All images now bundled from src/assets (no CDN/external URLs): tanzida-portrait.png, screenshot-your-quiet-corner.jpg, screenshot-barilagbe.jpg, screenshot-sakinah.jpg, 5 generated covers.
+- Screenshots render in a browser-window frame (dots + address bar); ProjectImage falls back to the project cover, then to the typographic placeholder.
+- Reveal uses an IntersectionObserver on an unclipped wrapper (clip-path on the observed node blocked the observer, leaving images invisible).
