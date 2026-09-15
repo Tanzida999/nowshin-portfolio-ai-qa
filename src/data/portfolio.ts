@@ -1,6 +1,11 @@
-import barilagbeAsset from "@/assets/barilagbe-platform.webp.asset.json";
-import sakinahAsset from "@/assets/sakinah-app.png.asset.json";
-import quietCornerAsset from "@/assets/your-quiet-corner.webp.asset.json";
+import coverKizuna from "@/assets/cover-kizuna.jpg";
+import coverLineBooking from "@/assets/cover-line-booking-agent.jpg";
+import coverSakinah from "@/assets/cover-sakinah-alt.jpg";
+import coverSentiment from "@/assets/cover-real-time-sentiment-dashboard.jpg";
+import coverStockfix from "@/assets/cover-stockfix.jpg";
+import shotBarilagbe from "@/assets/screenshot-barilagbe.jpg";
+import shotSakinah from "@/assets/screenshot-sakinah.jpg";
+import shotQuietCorner from "@/assets/screenshot-your-quiet-corner.jpg";
 
 /** Stable, language-independent structure. All human-facing copy lives in /locales. */
 export type ProjectCategory = "Client" | "Company" | "Personal";
