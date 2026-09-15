@@ -249,6 +249,15 @@
 .project-placeholder span { align-self: flex-end; font-family: var(--font-display); font-size: clamp(5rem, 12vw, 9rem); color: color-mix(in oklab, var(--primary) 28%, transparent); }
 .project-placeholder p { font-family: var(--font-mono); font-size: 0.625rem; color: var(--muted-foreground); }
 .case-image img { width: 100%; max-height: 48rem; object-fit: contain; }
+.browser-frame { display: flex; height: 100%; flex-direction: column; background: var(--surface); }
+.browser-bar { display: flex; align-items: center; gap: 0.375rem; border-bottom: 1px solid var(--border); padding: 0.5rem 0.75rem; }
+.browser-dot { height: 0.5rem; width: 0.5rem; border-radius: 9999px; background: color-mix(in oklab, var(--muted-foreground) 45%, transparent); }
+.browser-dot:first-child { background: color-mix(in oklab, var(--primary) 70%, transparent); }
+.browser-url { margin-left: 0.5rem; flex: 1; border-radius: 9999px; border: 1px solid var(--border); padding: 0.125rem 0.625rem; font-family: var(--font-mono); font-size: 0.625rem; color: var(--muted-foreground); }
+.browser-viewport { flex: 1; overflow: hidden; }
+.browser-viewport img { height: 100%; width: 100%; object-fit: cover; object-position: center top; }
+.case-image .browser-frame { max-height: 48rem; }
+.case-image .browser-viewport img { max-height: 44rem; object-fit: contain; }
 .field:focus { border-color: var(--primary); outline: 2px solid color-mix(in oklab, var(--primary) 22%, transparent); outline-offset: 2px; }
 .field[aria-invalid="true"] { border-color: var(--primary); }
 .availability span { height: 0.45rem; width: 0.45rem; border-radius: 999px; background: var(--success); animation: work-pulse 2s ease-in-out infinite; }
