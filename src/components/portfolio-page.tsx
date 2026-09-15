@@ -5,8 +5,8 @@ import { useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent a
 import portraitAsset from "@/assets/tanzida-photo-cutout.png.asset.json";
 import { LanguageSwitch } from "@/components/language-switch";
 import { Button } from "@/components/ui/button";
-import { experienceItems, navItems, person, projects, type Project, type ProjectCategory, type ProjectStatus, type SectionId } from "@/data/portfolio";
-import { getContent, getT, homePath, preferredLanguage, projectPath, storedLanguage, type Content, type Locale } from "@/lib/i18n";
+import { experienceItems, navItems, person, projects, type Project, type ProjectStatus } from "@/data/portfolio";
+import { getContent, getT, preferredLanguage, projectPath, storedLanguage, type Content, type Locale } from "@/lib/i18n";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 const statusKey = (status: ProjectStatus) => (status === "Live" ? "live" : "inProgress");
@@ -38,7 +38,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
   useEffect(() => {
     if (locale !== "en" || storedLanguage()) return;
-    if (preferredLanguage() === "ja") void navigate({ to: "/ja", replace: true });
+    if (preferredLanguage() === "ja") void navigate({ to: "/ja" as "/", replace: true });
   }, [locale, navigate]);
   useEffect(() => {
     if (reduced || !window.matchMedia("(hover:hover) and (pointer:fine) and (min-width: 1024px)").matches) return;
@@ -182,7 +182,7 @@ function ProjectCard({ project, c, locale }: { project: Project; c: Content; loc
   const reduced = useReducedMotion(); const [flipped, setFlipped] = useState(false);
   const copy = c.projects[project.slug as keyof Content["projects"]];
   return <motion.article layout initial={reduced ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: .98 }} transition={{ duration: .6, ease: premiumEase }} className="project-card-shell"><motion.div className="project-card-inner" animate={{ rotateY: flipped ? 180 : 0 }} transition={{ duration: reduced ? 0 : .5, ease: premiumEase }}>
-    <div className="project-face project-front" aria-hidden={flipped}><Link to={projectPath(locale, project.slug)} tabIndex={flipped ? -1 : undefined} className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><ProjectVisual project={project} c={c} /><div className="pt-5"><div className="flex items-center justify-between gap-4"><p className="font-mono text-xs text-muted-foreground">{c.ui.categories[project.category]}</p><Status status={project.status} c={c} /></div><h3 className="mt-3 flex items-center justify-between gap-4 font-display text-3xl font-semibold">{copy.title}<ArrowUpRight className="shrink-0 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={22} /></h3><p className="mt-3 leading-7 text-muted-foreground">{copy.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tech.slice(0, 4).map((tech) => <span className="tag" key={tech}>{tech}</span>)}</div></div></Link><button className="qa-trigger" tabIndex={flipped ? -1 : undefined} onClick={() => setFlipped(true)}><Play size={13} /> {c.ui.runChecks}</button></div>
+    <div className="project-face project-front" aria-hidden={flipped}><Link to={projectPath(locale, project.slug) as "/"} tabIndex={flipped ? -1 : undefined} className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><ProjectVisual project={project} c={c} /><div className="pt-5"><div className="flex items-center justify-between gap-4"><p className="font-mono text-xs text-muted-foreground">{c.ui.categories[project.category]}</p><Status status={project.status} c={c} /></div><h3 className="mt-3 flex items-center justify-between gap-4 font-display text-3xl font-semibold">{copy.title}<ArrowUpRight className="shrink-0 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={22} /></h3><p className="mt-3 leading-7 text-muted-foreground">{copy.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tech.slice(0, 4).map((tech) => <span className="tag" key={tech}>{tech}</span>)}</div></div></Link><button className="qa-trigger" tabIndex={flipped ? -1 : undefined} onClick={() => setFlipped(true)}><Play size={13} /> {c.ui.runChecks}</button></div>
     <div className="project-face project-back" aria-hidden={!flipped}><p className="eyebrow text-primary">QA / {project.slug}</p><h3 className="mt-4 font-display text-3xl font-semibold">{c.ui.checksPassed}</h3><div className="mt-7 space-y-4">{copy.qaChecks.map((check, index) => <motion.p key={check} className="flex gap-2 font-mono text-xs leading-6" initial={{ opacity: 0, x: -5 }} animate={flipped ? { opacity: 1, x: 0 } : { opacity: 0, x: -5 }} transition={{ delay: reduced ? 0 : .28 + index * .16 }}><Check className="mt-1 shrink-0 text-success" size={14} />{check}</motion.p>)}</div><button className="qa-trigger mt-auto" tabIndex={flipped ? undefined : -1} onClick={() => setFlipped(false)}><Undo2 size={13} /> {c.ui.backToCard}</button></div>
   </motion.div></motion.article>;
 }
@@ -232,5 +232,3 @@ function ContactForm({ c }: { c: Content }) {
 }
 function Field({ label, name, error, ...props }: { label: string; name: string; error: string | undefined; type?: string; maxLength: number }) { return <div><label className="field-label" htmlFor={name}>{label}</label><input className="field" id={name} name={name} aria-invalid={Boolean(error)} aria-describedby={error ? `${name}-error` : undefined} {...props} />{error && <p className="field-error" id={`${name}-error`}>{error}</p>}</div>; }
 function Footer({ bugFixed, onFix, c }: { bugFixed: boolean; onFix: (id: string) => void; c: Content }) { return <footer className="relative py-8"><BugButton id="footer" fixed={bugFixed} onFix={onFix} className="left-1/2 top-1" c={c} /><div className="page-shell grid grid-cols-[auto_1fr_auto] items-center gap-4"><span className="seal">TN</span><p className="font-mono text-[10px] text-muted-foreground">{c.ui.copyright}</p><a className="nav-link flex items-center gap-2" href="#top">{c.ui.top} <ArrowUpRight size={13} /></a></div></footer>; }
-
-export { homePath };

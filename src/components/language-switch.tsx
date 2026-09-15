@@ -7,7 +7,7 @@ export function LanguageSwitch({ locale, enHref, jaHref }: { locale: Locale; enH
   return (
     <div className="language-switch" role="group" aria-label={c.language.switchAria}>
       <Link
-        to={enHref}
+        to={enHref as "/"}
         lang="en"
         onClick={() => rememberLanguage("en")}
         aria-current={locale === "en" ? "true" : undefined}
@@ -17,7 +17,7 @@ export function LanguageSwitch({ locale, enHref, jaHref }: { locale: Locale; enH
       </Link>
       <span aria-hidden="true">/</span>
       <Link
-        to={jaHref}
+        to={jaHref as "/"}
         lang="ja"
         onClick={() => rememberLanguage("ja")}
         aria-current={locale === "ja" ? "true" : undefined}

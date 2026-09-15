@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as JaIndexRouteImport } from './routes/ja.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as JaProjectsSlugRouteImport } from './routes/ja.projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaIndexRoute = JaIndexRouteImport.update({
+  id: '/ja/',
+  path: '/ja/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
@@ -22,31 +29,44 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JaProjectsSlugRoute = JaProjectsSlugRouteImport.update({
+  id: '/ja/projects/$slug',
+  path: '/ja/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/ja/': typeof JaIndexRoute
+  '/ja/projects/$slug': typeof JaProjectsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/ja': typeof JaIndexRoute
+  '/ja/projects/$slug': typeof JaProjectsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/ja/': typeof JaIndexRoute
+  '/ja/projects/$slug': typeof JaProjectsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/$slug'
+  fullPaths: '/' | '/projects/$slug' | '/ja/' | '/ja/projects/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/$slug'
-  id: '__root__' | '/' | '/projects/$slug'
+  to: '/' | '/projects/$slug' | '/ja' | '/ja/projects/$slug'
+  id: '__root__' | '/' | '/projects/$slug' | '/ja/' | '/ja/projects/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  JaIndexRoute: typeof JaIndexRoute
+  JaProjectsSlugRoute: typeof JaProjectsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +78,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ja/': {
+      id: '/ja/'
+      path: '/ja'
+      fullPath: '/ja/'
+      preLoaderRoute: typeof JaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/$slug': {
       id: '/projects/$slug'
       path: '/projects/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/projects/$slug': {
+      id: '/ja/projects/$slug'
+      path: '/ja/projects/$slug'
+      fullPath: '/ja/projects/$slug'
+      preLoaderRoute: typeof JaProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -71,6 +105,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  JaIndexRoute: JaIndexRoute,
+  JaProjectsSlugRoute: JaProjectsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
