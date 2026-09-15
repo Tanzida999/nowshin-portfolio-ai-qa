@@ -17,6 +17,7 @@ export type Project = {
   image?: { url: string; alt: string; position?: string };
   features: string[];
   tested: string[];
+  qaChecks: string[];
 };
 
 export const portfolio = {
@@ -130,6 +131,7 @@ export const projects: Project[] = [
     image: { url: quietCornerAsset.url, alt: "Your Quiet Corner mood check-in interface", position: "center 14%" },
     features: ["AI-guided emotional check-ins", "Web and Android experiences", "Google authentication", "Push notifications"],
     tested: ["Safety classifier with scripted conversations", "Google login recovery paths", "Push notifications on physical devices", "Responsive behaviour and conversation edge cases"],
+    qaChecks: ["safety classifier test conversations", "Google login flow", "push notifications on a real Android device"],
   },
   {
     slug: "barilagbe",
@@ -144,6 +146,7 @@ export const projects: Project[] = [
     image: { url: barilagbeAsset.url, alt: "Barilagbe Bengali rental platform home page", position: "center top" },
     features: ["Bengali-language interface", "Tenant and owner journeys", "Agent discovery", "Legal support pathways"],
     tested: ["Bengali text wrapping", "Navigation and listing flows", "Responsive layouts", "Cross-browser presentation"],
+    qaChecks: ["pages checked against client requirements", "search filters", "owner registration flow"],
   },
   {
     slug: "stockfix",
@@ -157,6 +160,7 @@ export const projects: Project[] = [
     link: "https://github.com/Tanzida999/stockfix",
     features: ["Homeowner dashboard", "Tradesperson dashboard", "Admin controls", "Job and account workflows"],
     tested: ["Role-based access paths", "Form validation", "Dashboard state changes", "Mobile and desktop usability"],
+    qaChecks: ["sign-up and password reset", "trade search", "role dashboards"],
   },
   {
     slug: "line-booking-agent",
@@ -169,6 +173,7 @@ export const projects: Project[] = [
     status: "In progress",
     features: ["Natural-language booking", "Availability handling", "Business-side notifications", "Japanese customer journey"],
     tested: ["Ambiguous booking requests", "Unavailable time slots", "Conversation recovery", "Japanese language variations"],
+    qaChecks: ["ambiguous booking requests", "unavailable time slots", "conversation recovery"],
   },
   {
     slug: "kizuna",
@@ -181,6 +186,7 @@ export const projects: Project[] = [
     status: "In progress",
     features: ["Low-friction LINE access", "Supportive conversations", "Japanese context", "Safety escalation concepts"],
     tested: ["Sensitive conversation paths", "Tone consistency", "Unexpected user input", "Clear boundaries and escalation wording"],
+    qaChecks: ["sensitive conversation paths", "tone consistency", "unexpected input recovery"],
   },
   {
     slug: "sakinah",
@@ -195,6 +201,7 @@ export const projects: Project[] = [
     image: { url: sakinahAsset.url, alt: "Sakinah Islamic companion mobile interface", position: "center 12%" },
     features: ["Companion chat", "Prayer schedule", "Qibla compass", "Dhikr and saved duas", "Light and dark themes"],
     tested: ["Mobile viewport layout", "Theme contrast", "Navigation clarity", "Long text and content states"],
+    qaChecks: ["light and dark themes", "Qibla location permission", "dhikr counter"],
   },
   {
     slug: "real-time-sentiment-dashboard",
@@ -207,5 +214,6 @@ export const projects: Project[] = [
     status: "In progress",
     features: ["Streaming ingestion", "Sentiment analysis", "Searchable visualisation", "Operational monitoring"],
     tested: ["Event delivery", "Malformed input handling", "Analysis results", "CloudWatch alerts and logs"],
+    qaChecks: ["event delivery", "malformed input handling", "CloudWatch alerts"],
   },
 ];
