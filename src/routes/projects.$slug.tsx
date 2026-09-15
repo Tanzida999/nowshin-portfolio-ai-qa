@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/portfolio";
 
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function ProjectPage() {
   const project = Route.useLoaderData();
+  const reduced = useReducedMotion();
   return <main className="min-h-screen bg-background text-foreground">
     <header className="border-b border-border"><div className="page-shell flex h-20 items-center justify-between"><Link to="/" className="seal" aria-label="Tanzida Nowshin home">TN</Link><Button asChild variant="ghost"><Link to="/" hash="projects"><ArrowLeft size={16} /> All projects</Link></Button></div></header>
     <article>
@@ -36,7 +38,7 @@ function ProjectPage() {
         <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">{project.overview}</p>
         {project.link && <Button asChild className="mt-9"><a href={project.link} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={16} /></a></Button>}
       </div></section>
-      {project.image && <div className="page-shell py-12 sm:py-16"><div className="case-image"><img src={project.image.url} alt={project.image.alt} /></div></div>}
+      {project.image && <div className="page-shell py-12 sm:py-16"><motion.div className="case-image" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8, ease: [0.22, 1, 0.36, 1] }}><img src={project.image.url} alt={project.image.alt} width="1280" height="800" /></motion.div></div>}
       <section className="page-shell grid gap-14 border-b border-border py-16 sm:py-24 lg:grid-cols-[0.7fr_1.3fr]">
         <div><p className="eyebrow text-primary">My role</p><p className="mt-5 leading-7">{project.role}</p></div>
         <div><p className="eyebrow text-primary">Technology</p><div className="mt-5 flex flex-wrap gap-2">{project.tech.map((item) => <span className="tag" key={item}>{item}</span>)}</div></div>

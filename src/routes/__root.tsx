@@ -4,10 +4,12 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -117,9 +119,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const reduced = useReducedMotion();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <motion.div key={pathname} className="page-wipe" initial={reduced ? false : { scaleX: 1 }} animate={{ scaleX: 0 }} transition={{ duration: reduced ? 0 : .5, ease: [0.22, 1, 0.36, 1] }} aria-hidden="true" />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
