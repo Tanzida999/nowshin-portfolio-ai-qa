@@ -5,6 +5,13 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import netlify from "@netlify/vite-plugin-tanstack-start";
+
+// Netlify CI sets NETLIFY=true. Only there do we swap the deploy target:
+// the Netlify plugin builds the server output itself, so nitro's Cloudflare
+// worker build is disabled for that build only. Lovable preview/publish keeps
+// its default Cloudflare pipeline untouched.
+const isNetlify = process.env["NETLIFY"] === "true";
 
 export default defineConfig({
   tanstackStart: {
@@ -12,4 +19,5 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  ...(isNetlify ? { plugins: [netlify()], nitro: false as const } : {}),
 });
