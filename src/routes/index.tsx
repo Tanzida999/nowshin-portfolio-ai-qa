@@ -223,15 +223,15 @@ function ContactForm() {
     if (!Object.keys(next).length) { setSent(true); event.currentTarget.reset(); }
   };
   return <form onSubmit={submit} noValidate className="space-y-5" aria-label="Contact form">
-    <Field label="Name" name="name" maxLength={100} error={errors.name} />
-    <Field label="Email" name="email" type="email" maxLength={255} error={errors.email} />
-    <div><label className="field-label" htmlFor="message">Message</label><textarea className="field min-h-36 resize-y" id="message" name="message" maxLength={1000} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : undefined} />{errors.message && <p className="field-error" id="message-error">{errors.message}</p>}</div>
+    <Field label="Name" name="name" maxLength={100} error={errors["name"]} />
+    <Field label="Email" name="email" type="email" maxLength={255} error={errors["email"]} />
+    <div><label className="field-label" htmlFor="message">Message</label><textarea className="field min-h-36 resize-y" id="message" name="message" maxLength={1000} aria-invalid={Boolean(errors["message"])} aria-describedby={errors["message"] ? "message-error" : undefined} />{errors["message"] && <p className="field-error" id="message-error">{errors["message"]}</p>}</div>
     <Button type="submit">Send message <Send size={16} /></Button>
     {sent && <p className="border-l-2 border-success pl-4 text-sm" role="status">Thank you — your message is ready. Please email me directly if you need an immediate reply.</p>}
   </form>;
 }
 
-function Field({ label, name, error, ...props }: { label: string; name: string; error?: string; type?: string; maxLength: number }) {
+function Field({ label, name, error, ...props }: { label: string; name: string; error: string | undefined; type?: string; maxLength: number }) {
   return <div><label className="field-label" htmlFor={name}>{label}</label><input className="field" id={name} name={name} aria-invalid={Boolean(error)} aria-describedby={error ? `${name}-error` : undefined} {...props} />{error && <p className="field-error" id={`${name}-error`}>{error}</p>}</div>;
 }
 

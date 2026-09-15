@@ -77,10 +77,12 @@ export const portfolio = {
       place: "Japan",
       period: "Feb 2026 – Present",
       description: "Websites for clients and the company, server maintenance and performance, and company projects built with GitHub Copilot.",
+      link: undefined,
     },
     {
       role: "Web Developer",
       company: "Ecommerized",
+      place: undefined,
       period: "Jul 2025 – Jan 2026",
       description: "Client projects built with GitHub Copilot, chatbots across multiple websites, API integrations, sales and communication automations, technical support, and the Abu Dhabi Store Shopify site.",
       link: "https://ecommerized.ai",
@@ -88,14 +90,18 @@ export const portfolio = {
     {
       role: "Web Developer",
       company: "Sara's Collection BD",
+      place: undefined,
       period: "2024 – 2025",
       description: "Created the business website, logo and complete brand identity.",
+      link: undefined,
     },
     {
       role: "Founder",
       company: "Touch and Glow BD",
+      place: undefined,
       period: "2023 – 2024",
       description: "Founded and ran an online product business through Facebook and Instagram.",
+      link: undefined,
     },
   ],
   education: [
