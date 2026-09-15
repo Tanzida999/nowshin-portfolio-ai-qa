@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useInView, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Clipboard, Download, Menu, Moon, Play, RotateCcw, Search, Send, Sun, Undo2, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import portraitImage from "@/assets/tanzida-portrait.png";
@@ -187,9 +187,15 @@ function ProjectCard({ project, c, locale }: { project: Project; c: Content; loc
   </motion.div></motion.article>;
 }
 
-export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
+export function ClipReveal({ className, children }: { className: string; children: ReactNode }) {
   const reduced = useReducedMotion();
-  return <motion.div className="project-visual" initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, amount: .25 }} transition={{ duration: .8, ease: premiumEase }}><ProjectImage project={project} c={c} /></motion.div>;
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
+  return <motion.div ref={ref} className={className} initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} animate={reduced ? undefined : { clipPath: inView ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)" }} transition={{ duration: .8, ease: premiumEase }}>{children}</motion.div>;
+}
+
+export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
+  return <ClipReveal className="project-visual"><ProjectImage project={project} c={c} /></ClipReveal>;
 }
 
 export function ProjectImage({ project, c }: { project: Project; c: Content }) {
