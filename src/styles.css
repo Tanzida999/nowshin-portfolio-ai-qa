@@ -272,6 +272,7 @@
 .scroll-indicator i { position: relative; display: block; width: 1px; height: 2.5rem; background: var(--border-strong); }
 .scroll-indicator b { position: absolute; top: 0; left: -2px; width: 5px; height: 5px; border-radius: 999px; background: var(--primary); animation: scroll-dot 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
 .marquee > div { display: flex; width: max-content; }
+.marquee-track { animation: marquee-scroll 28s linear infinite; }
 .marquee span { padding-right: 0.35em; white-space: nowrap; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; line-height: 1; color: transparent; -webkit-text-stroke: 1px color-mix(in oklab, var(--foreground) 35%, transparent); }
 .marquee:hover > div { animation-play-state: paused; }
 .hero-grain { position: relative; }
@@ -283,12 +284,14 @@
 @keyframes work-pulse { 0%, 100% { opacity: .45; box-shadow: 0 0 0 0 color-mix(in oklab, var(--success) 30%, transparent); } 50% { opacity: 1; box-shadow: 0 0 0 .3rem transparent; } }
 @keyframes button-shine { from { left: -55%; } to { left: 135%; } }
 @keyframes scroll-dot { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(2.25rem); opacity: 0; } }
+@keyframes marquee-scroll { to { transform: translateX(-50%); } }
 
 @media (min-width: 1024px) {
   .hero-portrait-wrap { width: 320px; }
   .edge-japanese { display: block; }
   .premium-section { padding-block: 7.5rem; }
   .scroll-indicator { display: flex; }
+  .hero-layout { min-height: min(calc(100svh - 5rem), 880px); }
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
@@ -304,7 +307,7 @@
   .float-tag { transform: none !important; }
   .availability span { animation: none; }
   .custom-cursor { display: none !important; }
-  .shine-button::after, .scroll-indicator b { animation: none; }
+  .shine-button::after, .scroll-indicator b, .marquee-track { animation: none; }
 }
 
 @media (max-width: 1023px) {

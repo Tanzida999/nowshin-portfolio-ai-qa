@@ -73,8 +73,8 @@ function Index() {
     <p className="edge-japanese" aria-hidden="true">ウェブ開発者</p>
     <Header dark={dark} menuOpen={menuOpen} onMenu={() => setMenuOpen((value) => !value)} onTheme={toggleTheme} onPalette={() => setPaletteOpen(true)} />
     <main>
-      <section className="hero-grain editorial-grid min-h-[calc(100svh-5rem)] border-b border-border pt-20" aria-labelledby="hero-title">
-        <div className="page-shell hero-layout grid min-h-[calc(100svh-5rem)] items-center gap-10 py-10 lg:grid-cols-[3fr_2fr] lg:py-12">
+      <section className="hero-grain editorial-grid border-b border-border pt-20" aria-labelledby="hero-title">
+        <div className="page-shell hero-layout grid items-center gap-10 py-10 lg:grid-cols-[3fr_2fr] lg:py-12">
           <div className="hero-copy min-w-0">
             <motion.p className="eyebrow" initial={reduced ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, ease: premiumEase }}>{portfolio.hero.label}</motion.p>
             <AnimatedHeadline />
@@ -144,8 +144,8 @@ function HeroPortrait() {
 }
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
-function AnimatedHeadline() { const reduced = useReducedMotion(); return <h1 id="hero-title" className="hero-title mt-5 max-w-4xl font-display text-5xl leading-[1.02] font-semibold sm:text-6xl lg:text-7xl">{portfolio.hero.title.split(" ").map((word, index) => <span className="word-mask" key={`${word}-${index}`}><motion.span initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ duration: .6, delay: reduced ? 0 : .14 + index * .06, ease: premiumEase }} className={word === "—" ? "text-primary" : undefined}>{word}</motion.span></span>)}</h1>; }
-function Marquee() { const reduced = useReducedMotion(); const phrase = "React · TypeScript · GitHub Copilot · Testing · AWS · Supabase ·"; return <div className="marquee" aria-label={phrase}><motion.div animate={reduced ? false : { x: ["0%", "-50%"] }} transition={{ duration: 28, ease: "linear", repeat: Infinity }}><span>{phrase}</span><span aria-hidden="true">{phrase}</span></motion.div></div>; }
+function AnimatedHeadline() { const reduced = useReducedMotion(); return <h1 id="hero-title" aria-label={portfolio.hero.title} className="hero-title mt-5 max-w-4xl font-display text-5xl leading-[1.02] font-semibold sm:text-6xl lg:text-7xl"><span aria-hidden="true">{portfolio.hero.title.split(" ").map((word, index) => <span className="word-mask" key={`${word}-${index}`}><motion.span initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ duration: .6, delay: reduced ? 0 : .14 + index * .06, ease: premiumEase }} className={word === "—" ? "text-primary" : undefined}>{word}</motion.span></span>)}</span></h1>; }
+function Marquee() { const phrase = "React · TypeScript · GitHub Copilot · Testing · AWS · Supabase ·"; return <div className="marquee" aria-label={phrase}><div className="marquee-track"><span>{phrase}</span><span aria-hidden="true">{phrase}</span></div></div>; }
 
 function Section({ id, number, title, children }: { id: string; number: string; title: string; children: ReactNode }) {
   const reduced = useReducedMotion();
