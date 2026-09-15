@@ -216,9 +216,9 @@ function ContactForm() {
     const email = String(form.get("email") ?? "").trim();
     const message = String(form.get("message") ?? "").trim();
     const next: Record<string, string> = {};
-    if (!name || name.length > 100) next.name = "Please enter your name (up to 100 characters).";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) next.email = "Please enter a valid email address.";
-    if (message.length < 10 || message.length > 1000) next.message = "Please enter a message between 10 and 1,000 characters.";
+    if (!name || name.length > 100) next["name"] = "Please enter your name (up to 100 characters).";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) next["email"] = "Please enter a valid email address.";
+    if (message.length < 10 || message.length > 1000) next["message"] = "Please enter a message between 10 and 1,000 characters.";
     setErrors(next);
     if (!Object.keys(next).length) { setSent(true); event.currentTarget.reset(); }
   };
