@@ -202,7 +202,7 @@ export function ClipReveal({ className, children }: { className: string; childre
     return () => observer.disconnect();
   }, [revealed]);
   const open = reduced || revealed;
-  return <div ref={ref} className={className} style={{ clipPath: open ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)", transition: reduced ? undefined : "clip-path 800ms cubic-bezier(0.22, 1, 0.36, 1)" }}>{children}</div>;
+  return <div ref={ref} className={className}><div className="clip-reveal-inner" style={{ clipPath: open ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)", transition: reduced ? undefined : "clip-path 800ms cubic-bezier(0.22, 1, 0.36, 1)" }}>{children}</div></div>;
 }
 
 export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
