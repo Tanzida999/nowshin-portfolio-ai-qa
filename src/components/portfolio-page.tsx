@@ -191,7 +191,7 @@ export function ClipReveal({ className, children }: { className: string; childre
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
-  return <motion.div ref={ref} className={className} initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} animate={reduced ? undefined : { clipPath: inView ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)" }} transition={{ duration: .8, ease: premiumEase }}>{children}</motion.div>;
+  return <motion.div ref={ref} className={className} initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} animate={{ clipPath: reduced || inView ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)" }} transition={{ duration: .8, ease: premiumEase }}>{children}</motion.div>;
 }
 
 export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
