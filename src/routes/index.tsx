@@ -123,7 +123,7 @@ function HeroPortrait() {
     <div className="arch-shadow" /><div className="portrait-arch"><img src={portraitAsset.url} alt="Tanzida Nowshin in her graduation gown" className="h-full w-full object-cover" fetchPriority="high" />
       {!reduced && <><motion.span className="shoji-panel left-0 origin-left" initial={{ scaleX: 1 }} animate={{ scaleX: 0 }} transition={{ duration: .9, ease: "easeOut", delay: .15 }} /><motion.span className="shoji-panel right-0 origin-right" initial={{ scaleX: 1 }} animate={{ scaleX: 0 }} transition={{ duration: .9, ease: "easeOut", delay: .15 }} /></>}
     </div>
-    {["React", "GitHub Copilot", "QA", "AWS"].map((tag, i) => <motion.span key={tag} className={`float-tag float-tag-${i + 1}`} animate={reduced ? undefined : { y: [0, i % 2 ? -6 : 7, 0] }} transition={{ duration: 3.5 + i * .55, repeat: Infinity, ease: "easeInOut" }}>{tag}</motion.span>)}
+    {["React", "GitHub Copilot", "QA", "AWS"].map((tag, i) => <motion.span key={tag} className={`float-tag float-tag-${i + 1}`} animate={reduced ? false : { y: [0, i % 2 ? -6 : 7, 0] }} transition={{ duration: 3.5 + i * .55, repeat: Infinity, ease: "easeInOut" }}>{tag}</motion.span>)}
   </motion.div><div className="availability"><span />Open to work · Japan</div></div>;
 }
 
