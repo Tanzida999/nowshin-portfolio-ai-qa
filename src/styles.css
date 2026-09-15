@@ -317,3 +317,17 @@
   .hero-copy > p, .hero-copy .test-runner { margin-inline: auto; }
   .hero-copy > div { justify-content: center; }
 }
+
+@utility language-switch { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted-foreground); }
+
+.language-switch a { padding: 0.25rem 0.1rem; transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+.language-switch a:hover { color: var(--foreground); }
+.language-switch a.is-active { color: var(--primary); }
+
+/* Japanese typography */
+.lang-ja { font-family: "Noto Sans JP", var(--font-sans); font-size: 16px; line-height: 1.9; letter-spacing: 0.04em; word-break: auto-phrase; line-break: strict; }
+.lang-ja h1, .lang-ja h2, .lang-ja h3, .lang-ja .font-display { font-family: "Shippori Mincho", var(--font-display); font-weight: 500; letter-spacing: 0.02em; }
+.lang-ja .hero-title, .lang-ja .premium-section h2, .lang-ja .premium-section h3 { letter-spacing: 0.02em; }
+.lang-ja p, .lang-ja li, .lang-ja label { word-break: auto-phrase; line-break: strict; }
+.lang-ja .font-mono, .lang-ja .tag, .lang-ja .eyebrow, .lang-ja .test-runner, .lang-ja kbd { font-family: var(--font-mono); letter-spacing: 0; }
+.lang-ja .word-mask { margin-right: 0; }
