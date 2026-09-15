@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "homeTitle": "Tanzida Nowshin｜Webエンジニア・AI活用QA",
+    "homeDescription": "GitHub CopilotなどのAIツールを活用し、Webアプリの開発からテストまで手がけるWebエンジニアのポートフォリオです。",
+    "projectTitleSuffix": "Tanzida Nowshin",
+    "projectNotFound": "ページが見つかりません｜Tanzida Nowshin",
+    "projectFallbackDescription": "Tanzida Nowshinの制作実績です。"
+  },
+  "language": {
+    "label": "日本語",
+    "switchAria": "言語を切り替える",
+    "en": "EN",
+    "ja": "日本語"
+  },
+  "nav": {
+    "about": "自己紹介",
+    "skills": "スキル",
+    "experience": "職歴",
+    "projects": "制作実績",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "label": "WEBエンジニア · AI活用QA · 日本",
+    "nameLine": "タンジダ・ノウシン",
+    "title": "Webサービスをつくり、きちんと動くことまで確かめる。",
+    "description": "GitHub CopilotやClaudeなどのAIツールを活用し、日本・バングラデシュ・イギリスのクライアント向けに、信頼性の高いWebアプリの開発・テスト・リリースを行っています。",
+    "viewWork": "制作実績を見る",
+    "availability": "新しい機会を探しています · 日本",
+    "scroll": "スクロール",
+    "scrollAria": "自己紹介へスクロール",
+    "portraitAlt": "卒業式のガウンとキャップを身につけたTanzida Nowshin",
+    "tests": [
+      "フルスタックWebアプリ開発（React・Node.js・TypeScript）",
+      "GitHub Copilot・ClaudeでAI機能を実装",
+      "リリース前にAIの出力とエッジケースを検証",
+      "API連携・業務自動化・チャットボット構築",
+      "クラウドへのデプロイ（AWS・Supabase）"
+    ],
+    "runnerFile": "reliability-check.test.ts",
+    "runnerAria": "開発とテストに関する5つの項目がすべて成功しました",
+    "runnerSummary": "5件成功 · 0件失敗",
+    "runAgain": "もう一度実行"
+  },
+  "sections": {
+    "about": "自己紹介",
+    "skills": "スキル",
+    "experience": "職歴",
+    "projects": "制作実績",
+    "education": "学歴・資格",
+    "contact": "信頼できるプロダクトを、一緒につくりましょう。"
+  },
+  "about": {
+    "paragraphs": [
+      "ユナイテッド・インターナショナル大学でコンピュータサイエンス・工学の学士号を取得したWebエンジニアです。これまで日本とバングラデシュの企業向けに、Webサイト、ECサイト、API連携、チャットボット、業務自動化などを手がけてきました。",
+      "現在はAIコーディングツールを日常的に使って開発しており、AIが生成したコードの確認・検証も同じくらい大切にしています。今後はAIを活用したソフトウェアテスト・QAの分野で成長していきたいと考えており、仕事と並行してAWS認定資格の取得にも取り組んでいます。"
+    ],
+    "facts": [
+      "日本在住",
+      "ベンガル語／英語／日本語（JLPT N3・学習中）",
+      "AWS Certified AI Practitioner（学習中）"
+    ]
+  },
+  "skills": [
+    {
+      "title": "AI活用開発",
+      "tags": ["GitHub Copilot", "Claude", "ChatGPT", "Gemini", "Lovable", "プロンプト・エージェント設計", "LLM API連携"]
+    },
+    {
+      "title": "テスト・QA",
+      "tags": ["テストケース設計", "手動テスト", "探索的テスト", "回帰テスト", "実機テスト", "トラブルシューティング", "バグ修正"]
+    },
+    {
+      "title": "開発",
+      "tags": ["JavaScript", "TypeScript", "Python", "React", "Node.js", "Express", "TanStack Start", "Tailwind CSS", "MongoDB", "MySQL", "Supabase"]
+    },
+    {
+      "title": "クラウド・業務ツール",
+      "tags": ["AWS", "EC2", "S3", "Kinesis", "Comprehend", "OpenSearch", "CloudWatch", "WordPress", "Shopify", "REST API", "業務自動化", "チャットボット"]
+    }
+  ],
+  "experience": {
+    "akino": {
+      "role": "Webエンジニア／デザイナー",
+      "company": "Akino Group",
+      "place": "日本",
+      "period": "2026年2月〜現在",
+      "description": "クライアント・自社サイトの制作、サーバーの運用保守とパフォーマンス改善、GitHub Copilotを活用した社内プロジェクトの開発"
+    },
+    "ecommerized": {
+      "role": "Webエンジニア",
+      "company": "Ecommerized",
+      "place": "",
+      "period": "2025年7月〜2026年1月",
+      "description": "GitHub Copilotを活用したクライアント案件の開発、複数サイトへのチャットボット導入、API連携、営業・顧客対応の業務自動化、営業・事業開発チームの技術サポート、Abu Dhabi StoreのShopifyサイト構築"
+    },
+    "saras": {
+      "role": "Webエンジニア",
+      "company": "Sara's Collection BD",
+      "place": "",
+      "period": "2024年〜2025年",
+      "description": "企業サイト、ロゴ、ブランドアイデンティティの制作"
+    },
+    "touchandglow": {
+      "role": "創業者",
+      "company": "Touch and Glow BD",
+      "place": "",
+      "period": "2023年〜2024年",
+      "description": "FacebookとInstagramを通じたオンライン物販事業の運営"
+    }
+  },
+  "education": {
+    "title": "学歴",
+    "items": [
+      ["コンピュータサイエンス・工学 学士", "ユナイテッド・インターナショナル大学", "2019年〜2024年"],
+      ["高等学校卒業資格（HSC）", "Begum Badrunnesa Govt. College", "2018年"],
+      ["中等教育修了資格（SSC）", "A.K. School and College", "2016年"]
+    ]
+  },
+  "certifications": {
+    "title": "資格",
+    "items": [
+      ["AWS Certified AI Practitioner", "学習中"],
+      ["AWS Certified Cloud Practitioner／Solutions Architect – Associate", "学習中"],
+      ["MERNスタック開発 修了証", "Great Learning・Simplilearn · 2024年"]
+    ]
+  },
+  "ui": {
+    "downloadCv": "履歴書（英語）をダウンロード",
+    "themeToLight": "ライトモードに切り替える",
+    "themeToDark": "ダークモードに切り替える",
+    "toggleMenu": "メニューを開閉する",
+    "backToTop": "Tanzida Nowshin・ページの先頭へ",
+    "homeAria": "Tanzida Nowshin ホーム",
+    "top": "ページの先頭へ",
+    "copyright": "© 2026 Tanzida Nowshin",
+    "marquee": "React · TypeScript · GitHub Copilot · Testing · AWS · Supabase ·",
+    "edgeJapanese": "ウェブ開発者",
+    "visitCompany": "会社サイトを見る",
+    "filterAria": "制作実績を絞り込む",
+    "filters": { "all": "すべて", "client": "受託", "company": "社内", "personal": "個人" },
+    "status": { "live": "公開中", "inProgress": "開発中" },
+    "categories": { "Client": "受託", "Company": "社内", "Personal": "個人" },
+    "runChecks": "テスト実行",
+    "checksPassed": "テストに成功しました。",
+    "backToCard": "戻る",
+    "viewProject": "詳しく見る",
+    "allProjects": "制作実績一覧",
+    "visitProject": "サイトを見る",
+    "nextProject": "次のプロジェクトへ",
+    "projectMeta": "{{category}}プロジェクト · {{status}}",
+    "overview": "概要",
+    "myRole": "担当範囲",
+    "technology": "技術スタック",
+    "keyFeatures": "主な機能",
+    "whatITested": "テスト内容",
+    "screenshots": "スクリーンショット",
+    "contactIntro": "つくりたいプロダクト、改善したい業務、丁寧に確認してほしいソフトウェアなど、ぜひお聞かせください。",
+    "form": {
+      "aria": "お問い合わせフォーム",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "send": "送信する",
+      "sent": "送信しました。ご連絡ありがとうございます。",
+      "nameError": "お名前を入力してください",
+      "emailError": "正しいメールアドレスを入力してください",
+      "messageError": "メッセージを入力してください"
+    },
+    "palette": {
+      "aria": "クイックナビゲーション",
+      "placeholder": "セクションやプロジェクトを検索…",
+      "projectPrefix": "プロジェクト：{{title}}",
+      "downloadCv": "履歴書をダウンロード",
+      "copyEmail": "メールアドレスをコピー",
+      "copied": "コピーしました"
+    },
+    "bugs": {
+      "find": "隠れたバグを見つけて修正する",
+      "fixed": "修正済み",
+      "progress": "バグを修正しました · {{count}} / 3",
+      "all": "すべてのバグを修正しました。仕事でも同じことをしています 😉 ぜひお話ししましょう。",
+      "contact": "お問い合わせへ",
+      "dismiss": "通知を閉じる"
+    }
+  },
+  "projects": {
+    "your-quiet-corner": {
+      "title": "Your Quiet Corner",
+      "description": "イギリスの大人向けAIコンパニオンのWeb・Androidアプリ。安全判定機能のシナリオテスト、Googleログインの不具合修正、実機でのプッシュ通知検証を実施。",
+      "overview": "気持ちを振り返り、AIコンパニオンと落ち着いて対話できる、プライベートな空間を提供するサービスです。",
+      "role": "フルスタック開発、AIの安全性テスト、認証機能のデバッグ、Androidアプリ化と実機QA",
+      "features": ["AIによる気持ちのチェックイン", "WebとAndroidの両対応", "Googleログイン", "プッシュ通知"],
+      "tested": ["安全判定機能のシナリオテスト", "Googleログインの復帰フロー", "実機でのプッシュ通知", "レスポンシブ表示と会話のエッジケース"],
+      "qaChecks": ["安全判定のシナリオテスト", "Googleログインの動作確認", "Android実機でのプッシュ通知"],
+      "imageAlt": "Your Quiet Cornerの気分チェックイン画面"
+    },
+    "barilagbe": {
+      "title": "Barilagbe",
+      "description": "ダッカの借主・大家・地域エージェント・弁護士をつなぐ、ベンガル語の賃貸管理プラットフォーム。",
+      "overview": "ダッカでの住まい探しから掲載・管理・サポートまでを、よりわかりやすくするためのベンガル語向け賃貸管理サービスです。",
+      "role": "多面型ローカルマーケットプレイスのプロダクト設計とフロントエンド開発",
+      "features": ["ベンガル語インターフェース", "借主・大家それぞれの導線", "エージェント検索", "法務サポートへの導線"],
+      "tested": ["ベンガル語テキストの折り返し", "ナビゲーションと物件掲載フロー", "レスポンシブ表示", "ブラウザ間の表示確認"],
+      "qaChecks": ["クライアント要件との照合", "検索フィルター", "大家の登録フロー"],
+      "imageAlt": "Barilagbeベンガル語賃貸プラットフォームのトップページ"
+    },
+    "stockfix": {
+      "title": "StockFix",
+      "description": "イギリスの住宅所有者と地元の職人をつなぐマーケットプレイス。住宅所有者・職人・管理者向けのダッシュボードを搭載。",
+      "overview": "住宅所有者と地元の職人の依頼をつなぎ、管理者向けの運用機能も備えた権限別マーケットプレイスです。",
+      "role": "住宅所有者・職人・管理者それぞれの業務フローにわたるフルスタック開発",
+      "features": ["住宅所有者向けダッシュボード", "職人向けダッシュボード", "管理者機能", "依頼とアカウントの管理フロー"],
+      "tested": ["権限別のアクセス経路", "フォームのバリデーション", "ダッシュボードの状態変化", "モバイル・デスクトップの使いやすさ"],
+      "qaChecks": ["新規登録・パスワード再設定", "職人検索", "権限別ダッシュボード"],
+      "imageAlt": "StockFixのカバーイラスト"
+    },
+    "line-booking-agent": {
+      "title": "LINE Booking Agent",
+      "description": "日本の小規模店舗向けに、LINEで予約できるAI予約システム。",
+      "overview": "普段使っているメッセージアプリから離れることなく予約ができる、会話型の予約フローです。",
+      "role": "会話設計、連携の設計、アプリケーション開発",
+      "features": ["自然な会話での予約", "空き状況の判定", "店舗側への通知", "日本語の顧客体験"],
+      "tested": ["あいまいな予約依頼", "予約できない時間帯", "会話の復帰", "日本語表現のばらつき"],
+      "qaChecks": ["あいまいな予約依頼", "予約できない時間帯", "会話の復帰"],
+      "imageAlt": "LINE Booking Agentのカバーイラスト"
+    },
+    "kizuna": {
+      "title": "Kizuna",
+      "description": "高齢者や孤立しがちな方に寄り添う、LINE上のAIコンパニオン。",
+      "overview": "使い慣れたメッセージアプリの習慣に合わせ、孤立を感じやすい方に配慮して設計したコンパニオンです。",
+      "role": "プロダクト構想、会話設計、安全性を重視したAI開発",
+      "features": ["LINEから手軽に利用", "寄り添う会話", "日本の文脈に合わせた設計", "安全面のエスカレーション設計"],
+      "tested": ["デリケートな話題の会話経路", "話し方の一貫性", "想定外の入力", "境界線とエスカレーションの表現"],
+      "qaChecks": ["デリケートな会話経路", "話し方の一貫性", "想定外の入力からの復帰"],
+      "imageAlt": "Kizunaのカバーイラスト"
+    },
+    "sakinah": {
+      "title": "Sakinah",
+      "description": "礼拝時刻、AIチャット、キブラ（礼拝方向）表示、ズィクル（念唱）カウンターを備えた、イスラム教徒向けコンパニオンアプリのUIプロトタイプ。",
+      "overview": "チャット、礼拝時刻、キブラ表示、日々の念唱をひとつにまとめたモバイルインターフェースです。",
+      "role": "ライト・ダークテーマに対応したUIデザインとフロントエンドのプロトタイピング",
+      "features": ["コンパニオンチャット", "礼拝時刻", "キブラコンパス", "ズィクルと保存した祈り", "ライト・ダークテーマ"],
+      "tested": ["モバイル表示のレイアウト", "テーマのコントラスト", "ナビゲーションのわかりやすさ", "長文表示の状態"],
+      "qaChecks": ["ライト・ダークテーマ", "位置情報の許可", "ズィクルカウンター"],
+      "imageAlt": "SakinahのモバイルUI"
+    },
+    "real-time-sentiment-dashboard": {
+      "title": "Real-Time Sentiment Dashboard",
+      "description": "AWS（Kinesis・Comprehend・OpenSearch・CloudWatch）を使ったリアルタイム感情分析パイプライン。AWSの学習と並行して開発中。",
+      "overview": "テキストを取り込み、感情を分析し、検索できるダッシュボードで状況を可視化するクラウドプロジェクトです。",
+      "role": "クラウド構成、パイプライン設定、監視の整備",
+      "features": ["ストリーミング取り込み", "感情分析", "検索できる可視化", "運用監視"],
+      "tested": ["イベントの到達", "不正な入力の処理", "分析結果", "CloudWatchのアラートとログ"],
+      "qaChecks": ["イベントの到達", "不正な入力の処理", "CloudWatchのアラート"],
+      "imageAlt": "Real-Time Sentiment Dashboardのカバーイラスト"
+    }
+  }
+}
