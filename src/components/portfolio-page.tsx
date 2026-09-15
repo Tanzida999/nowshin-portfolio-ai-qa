@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { AnimatePresence, motion, useInView, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Clipboard, Download, Menu, Moon, Play, RotateCcw, Search, Send, Sun, Undo2, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import portraitImage from "@/assets/tanzida-portrait.png";
@@ -190,8 +190,19 @@ function ProjectCard({ project, c, locale }: { project: Project; c: Content; loc
 export function ClipReveal({ className, children }: { className: string; children: ReactNode }) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
-  return <motion.div ref={ref} className={className} initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }} animate={{ clipPath: reduced || inView ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)" }} transition={{ duration: .8, ease: premiumEase }}>{children}</motion.div>;
+  const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || revealed) return;
+    if (typeof IntersectionObserver === "undefined") { setRevealed(true); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { setRevealed(true); observer.disconnect(); }
+    }, { threshold: 0.1 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [revealed]);
+  const open = reduced || revealed;
+  return <div ref={ref} className={className} style={{ clipPath: open ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)", transition: reduced ? undefined : "clip-path 800ms cubic-bezier(0.22, 1, 0.36, 1)" }}>{children}</div>;
 }
 
 export function ProjectVisual({ project, c }: { project: Project; c: Content }) {
