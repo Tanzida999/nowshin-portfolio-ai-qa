@@ -16,3 +16,6 @@
 - [ ] Download the Your Quiet Corner and Barilagbe screenshots and show them in a browser-window frame.
 - [ ] Generate consistent editorial covers for StockFix, LINE Booking Agent, Kizuna, Sakinah, Real-Time Sentiment Dashboard.
 - [ ] Fall back to the generated cover design when an image fails to load.
+
+## Static app request
+- [ ] Requested conversion to a plain Vite + React Router static app for Netlify — blocked: this project's framework is fixed on Lovable.
